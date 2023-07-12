@@ -44,8 +44,9 @@ n이 양의 정수 x의 제곱이 아니라면 -1을 리턴하는 함수를 완�
 
 function solution(n) {
   var answer = 0;
-  let x = Math.sqrt(n);
-
+  let x = parseInt(Math.sqrt(n));
+  // let x = Math.sqrt(n);      원래코드
+  // parseInt == 정수형으로 변환해주기
 
   if (Math.pow(x, 2) == n) {
     return Math.pow((x + 1), 2);
@@ -59,3 +60,9 @@ function solution(n) {
 
 
 // 코드 실행 결과는 맞았지만 채점 결과 83.3점으로 탈락함
+// let x = Math.sqrt(n);    이렇게만 선언 했을 경우
+//                          Math.sqrt(n) 값이 정수가 아닐 수도 있는데,
+//                          그 수를 제곱하면 -1로 넘어가서 오류가 발생함
+
+// Ex) n = 6이면  -- x = 루트6 (2.44948974278)이 되어버림
+//                   그래서 모든 수에 대한 코드를 짜야함 !!!
