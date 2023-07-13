@@ -32,4 +32,63 @@
   - 제한사항
   - n은 1이상 8000000000 이하인 자연수입니다. */
   
-// 어려워 ! 모르겠어 !!
+function solution(n) {
+    
+    let answer = n.toString().split('').sort().reverse().join('');
+    
+    return parseInt(answer);
+}
+
+// --------------------------------------------------------------
+
+// function solution(n) {
+    
+//     // let answer = 0;
+    
+//     let a = n.toString();
+//         //  118372  (문자열)
+//     let b = a.split('');
+//         //  [ '1', '1', '8', '3', '7', '2' ]
+//     let c = b.sort();
+//         //  [ '1', '1', '2', '3', '7', '8' ]
+//     let d = c.reverse();
+//         //  [ '8', '7', '3', '2', '1', '1' ]
+//     let answer = d.join('');
+//         //  873211
+//     return parseInt(answer);
+//     // console.log(answer);
+// }
+// solution(118372);
+
+
+// array.toString()
+// 배열을 포함하는 문자열 반환
+
+// split(seperator, limit) 인자필수아님
+// 특정 구분자를 기준으로 문자열을 분리하여 결과를 배열로 반환
+
+// arr.reverse()
+// 배열의 원소의 순서를 반대로 만드는 메서드
+
+// arr.join() 
+// 배열의 모든 요소를 연결해 하나의 문자열로 만듦
+//  - 괄호에 아무것도 넣지 않으면 쉼표(,)로 구분됨
+//  - 괄호에 ('')를 넣으면 구분없이 이어서 출력
+
+// -------------------------------------
+
+// 스터디 서동현님이 알려주신 방법
+
+// function solution(n){
+//   var arr = Array.from(n.toString()).sort().reverse();
+//   console.log(arr);
+// }
+// solution(115489);
+
+// 
+// function solution(n){
+//   var arr = Array.from(n.toString()).sort().reverse();
+//   var answer = arr.toString();
+//   console.log(answer)
+// }
+// solution(115489);
