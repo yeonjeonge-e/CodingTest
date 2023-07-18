@@ -1,3 +1,5 @@
+// 3일차
+
 // 백준 코딩테스트 문제
 // 1에서부터 6까지의 눈을 가진 3개의 주사위를 던져서 다음과 같은 규칙에 따라 상금을 받는 게임이 있다.
 
@@ -18,25 +20,25 @@
 const fs = require('fs');
 const input = fs.readFileSync("/dev/stdin").toString().trim().split(" ");
 
-    const a = input[0];
-    const b = input[1];
-    const c = input[2];
+const a = input[0];
+const b = input[1];
+const c = input[2];
 
-function solution(a,b,c){
-    var answer = 0;
-   
-    const maxNum = Math.max(a,b,c)
-    
-    if (a === b && b === c) {
-      console.log(1000 + a * 1000);
-    } else if (a === b && b !== c) {
-      console.log(answer = 1000 + a * 100);
-    } else if (b === c && c !== a) {
-      console.log(answer = 1000 + b * 100);
-    } else if (c === a && a !== b) {
-      console.log(1000 + c * 100);
-    } else if(a !== b && b !== c){
-       console.log(maxNum * 100);
-      }
-    return answer;
+function solution(a, b, c) {
+  var answer = 0;
+
+  const maxNum = Math.max(a, b, c)
+
+  if (a === b && b === c) {
+    console.log(1000 + a * 1000);
+  } else if (a === b && b !== c) {
+    console.log(answer = 1000 + a * 100);
+  } else if (b === c && c !== a) {
+    console.log(answer = 1000 + b * 100);
+  } else if (c === a && a !== b) {
+    console.log(1000 + c * 100);
+  } else if (a !== b && b !== c) {
+    console.log(maxNum * 100);
+  }
+  return answer;
 }

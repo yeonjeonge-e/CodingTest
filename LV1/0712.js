@@ -1,94 +1,70 @@
-// 문자열을 정수로 바꾸기
+// 7회차
+
+// 자연수 뒤집어 배열로 만들기
 
 /* 
 < 문제설명 >
-- 문자열 s를 숫자로 변환한 결과를 반환하는 함수, solution을 완성하세요.
+- 자연수 n을 뒤집어 각 자리 숫자를 원소로 가지는 배열 형태로 리턴해주세요.
+  예를들어 n이 12345이면 [5,4,3,2,1]을 리턴합니다.
 
 - 제한사항
-  - s의 길이는 1 이상 5이하입니다.
-  - s의 맨앞에는 부호(+, -)가 올 수 있습니다.
-  - s는 부호와 숫자로만 이루어져있습니다.
-  - s는 "0"으로 시작하지 않습니다. */
+  -n은 10,000,000,000이하인 자연수입니다. */
 
-  function solution(s) {
-    let str = parseInt(s);
-    return str;
-}
-
-
-
+  function solution(n) {
+    var answer = [];
+  
+    answer = n.toString().split("").reverse().map(Number);
+  
+    return answer;
+  }
+  
+  // array.toString()
+  // toString()함수는 배열의 값들을 ','로 연결한 문자열을 리턴한다.
+  
+  // split(seperator, limit) 인자필수아님
+  // 특정 구분자를 기준으로 문자열을 분리하여 결과를 배열로 반환
+  
+  // arr.reverse()
+  // 배열의 원소의 순서를 반대로 만드는 메서드
+  
+  
+  
   // --------------------------------------------------------------
   
   
   
-  // 정수 내림차순으로 배치하기
+  // 정수 제곱근 판별
   
   /* 
   < 문제설명 >
-  - 함수 solution은 정수 n을 매개변수로 입력받습니다.
-    n의 각 자릿수를 큰것부터 작은 순으로 정렬한 새로운 정수를 리턴해주세요.
-    예를들어 n이 118372면 873211을 리턴하면 됩니다.
+  - 임의의 양의 정수 n에 대해, n이 어떤 양의 정수 x의 제곱인지 아닌지 판단하려 합니다.
+  n이 양의 정수 x의 제곱이라면 x+1의 제곱을 리턴하고,
+  n이 양의 정수 x의 제곱이 아니라면 -1을 리턴하는 함수를 완성하세요.
   
   - 제한사항
-  - n은 1이상 8000000000 이하인 자연수입니다. */
+  -n은 1이상, 50000000000000 이하인 양의 정수입니다. */
   
-function solution(n) {
-    
-    let answer = n.toString().split('').sort().reverse().join('');
-    
-    return parseInt(answer);
-}
-
-// --------------------------------------------------------------
-
-// function solution(n) {
-    
-//     // let answer = 0;
-    
-//     let a = n.toString();
-//         //  118372  (문자열)
-//     let b = a.split('');
-//         //  [ '1', '1', '8', '3', '7', '2' ]
-//     let c = b.sort();
-//         //  [ '1', '1', '2', '3', '7', '8' ]
-//     let d = c.reverse();
-//         //  [ '8', '7', '3', '2', '1', '1' ]
-//     let answer = d.join('');
-//         //  873211
-//     return parseInt(answer);
-//     // console.log(answer);
-// }
-// solution(118372);
-
-
-// array.toString()
-// 배열을 포함하는 문자열 반환
-
-// split(seperator, limit) 인자필수아님
-// 특정 구분자를 기준으로 문자열을 분리하여 결과를 배열로 반환
-
-// arr.reverse()
-// 배열의 원소의 순서를 반대로 만드는 메서드
-
-// arr.join() 
-// 배열의 모든 요소를 연결해 하나의 문자열로 만듦
-//  - 괄호에 아무것도 넣지 않으면 쉼표(,)로 구분됨
-//  - 괄호에 ('')를 넣으면 구분없이 이어서 출력
-
-// -------------------------------------
-
-// 스터디 서동현님이 알려주신 방법
-
-// function solution(n){
-//   var arr = Array.from(n.toString()).sort().reverse();
-//   console.log(arr);
-// }
-// solution(115489);
-
-// 
-// function solution(n){
-//   var arr = Array.from(n.toString()).sort().reverse();
-//   var answer = arr.toString();
-//   console.log(answer)
-// }
-// solution(115489);
+  function solution(n) {
+    var answer = 0;
+    let x = parseInt(Math.sqrt(n));
+    // let x = Math.sqrt(n);      원래코드
+    // parseInt == 정수형으로 변환해주기
+  
+    if (Math.pow(x, 2) == n) {
+      return Math.pow((x + 1), 2);
+    } else {
+      return -1;
+    }
+    return answer;
+  }
+  //  n   x
+  //  121 11
+  
+  
+  // 코드 실행 결과는 맞았지만 채점 결과 83.3점으로 탈락함
+  // let x = Math.sqrt(n);    이렇게만 선언 했을 경우
+  //                          Math.sqrt(n) 값이 정수가 아닐 수도 있는데,
+  //                          그 수를 제곱하면 -1로 넘어가서 오류가 발생함
+  
+  // Ex) n = 6이면  -- x = 루트6 (2.44948974278)이 되어버림
+  //                   그래서 모든 수에 대한 코드를 짜야함 !!!
