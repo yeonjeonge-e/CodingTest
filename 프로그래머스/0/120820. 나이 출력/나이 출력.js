@@ -1,3 +1,3 @@
 function solution(age) {
-    return 2023-age
+    return 2023-age;
 }
